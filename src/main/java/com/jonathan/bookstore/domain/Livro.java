@@ -9,13 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Livro implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,5 +26,17 @@ public class Livro implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
+	
+	public Livro() {
+		super();
+	}
 
+	public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
+		super();
+		this.id = id;
+		this.titulo = titulo;
+		this.nome_autor = nome_autor;
+		this.texto = texto;
+		this.categoria = categoria;
+	}
 }
