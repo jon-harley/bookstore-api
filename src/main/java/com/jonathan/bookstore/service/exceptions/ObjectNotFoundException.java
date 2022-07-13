@@ -1,4 +1,4 @@
-package com.jonathan.bookstore.exceptions;
+package com.jonathan.bookstore.service.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException{
 
