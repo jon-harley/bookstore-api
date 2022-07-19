@@ -1,5 +1,7 @@
 package com.jonathan.bookstore.resources.exceptions;
 
+import java.util.stream.Collectors;
+
 import javax.servlet.ServletRequest;
 
 import org.springframework.http.HttpStatus;
@@ -37,6 +39,8 @@ public class ResourceExceptionHandler {
 		for(FieldError x : e.getBindingResult().getFieldErrors()) {
 			error.addErrors(x.getField(), x.getDefaultMessage());
 		}
+		
+		// error.addErrors(e.getAllErrors().stream().map(x -> x.getDefaultMessage()).collect(Collectors.toList()));
 		
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
 	}
